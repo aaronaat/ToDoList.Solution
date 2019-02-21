@@ -7,7 +7,7 @@ namespace ToDoList.Tests
   [TestClass]
   public class ItemTest : IDisposable
   {
-    
+
     public void Dispose()
     {
       Item.ClearAll();
@@ -66,5 +66,32 @@ namespace ToDoList.Tests
       //Assert
       CollectionAssert.AreEqual(newList, result);
     }
+
+
+    [TestMethod]
+    public void GetId_ItemsInstantiateWithAnIdAndGetterReturns_Int()
+    {
+      string description = "Walk the dog.";
+      Item newItem = new Item(description);
+
+      int result = newItem.GetId();
+
+      Assert.AreEqual(1, result);
+    }
+
+    [TestMethod]
+    public void Find_ReturnsCorrectItem_Item()
+    {
+      string desc1 = "walk the dog";
+      string desc2 = "do the dishes";
+      Item new1 = new Item(desc1);
+      Item new2 = new Item(desc2);
+
+      Item result = Item.Find(2);
+
+      Assert.AreEqual(new2, result)
+
+    }
+
   }
 }
