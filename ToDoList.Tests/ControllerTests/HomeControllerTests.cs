@@ -24,7 +24,7 @@ namespace ToDoList.Tests
       [TestMethod]
       public void Index_HasCorrrectModelType_ItemList()
       {
-        ViewResult indexView = new HomeController().Index() as ViewREsult;
+        ViewResult indexView = new HomeController().Index() as ViewResult;
         var result = indexView.ViewData.Model;
         Assert.IsInstanceOfType(result, typeof(List<Item>));
       }

@@ -13,11 +13,11 @@ namespace ToDoList.Controllers
        Category category = Category.Find(categoryId);
        return View(category);
     }
-    
+
     [HttpGet("/categories/{categoryId}/items/{itemId}")]
     public ActionResult Show(int categoryId, int itemId)
     {
-      Item item = Item.Find(id);
+      Item item = Item.Find(itemId);
       Dictionary<string, object> model = new Dictionary<string, object>();
       Category category = Category.Find(categoryId);
       model.Add("item", item);
