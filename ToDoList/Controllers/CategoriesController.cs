@@ -21,6 +21,14 @@ namespace ToDoList.Controllers
       return View();
     }
 
+    [HttpPost("/categories")]
+    public ActionResult Create(string categoryName)
+    {
+      Category newCategory = new Category(categoryName);
+      List<Category> allCategories = Category.GetAll();
+      return View("Index", allCategories);
+    }
+
     [HttpGet("/categories/{id}")]
     public ActionResult Show(int id)
     {
